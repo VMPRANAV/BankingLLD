@@ -1,12 +1,13 @@
+package Entity;
 import java.time.LocalDateTime;
 
 public class Transaction{
-   private int transactionId;
-    private int customerId;
-    private TransactionType type;
-    private double amount;
-    private LocalDateTime timestamp;
-    public Transaction(int transactionId, int customerId, Transaction.TransactionType type, double amount,
+   private final int transactionId;
+    private final int customerId;
+    private final TransactionType type;
+    private final double amount;
+    private final LocalDateTime timestamp;
+    public Transaction(int transactionId, int customerId, TransactionType type, double amount,
             LocalDateTime timestamp) {
         this.transactionId = transactionId;
         this.customerId = customerId;
@@ -14,11 +15,7 @@ public class Transaction{
         this.amount = amount;
         this.timestamp = timestamp;
     }
-    public enum TransactionType {
-    DEPOSIT,
-    WITHDRAW,
-    TRANSFER
-}
+   
     public int getTransactionId() {
         return transactionId;
     }

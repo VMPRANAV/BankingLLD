@@ -1,54 +1,50 @@
+package Entity;
 public class Customer {
     private int customerId;
     private String accountNo;
     private String name;
     private double balance;
-    private String encryptPassword;
-    public Customer(int customerId, String accountNo, String name, double balance, String encryptPassword) {
+    private String encryptedPassword;
+    public Customer(int customerId, String accountNo, String name, double balance, String encryptedPassword) {
         this.customerId = customerId;
         this.accountNo = accountNo;
         this.name = name;
         this.balance = balance;
-        this.encryptPassword = encryptPassword;
+        this.encryptedPassword = encryptedPassword;
     }
+   
+    
     public int getCustomerId() {
         return customerId;
     }
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
+
     public String getAccountNo() {
         return accountNo;
     }
-    public void setAccountNo(String accountNo) {
-        this.accountNo = accountNo;
-    }
+
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
+
     public double getBalance() {
         return balance;
     }
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
+
     public String getEncryptPassword() {
-        return encryptPassword;
-    }
-    public void setEncryptPassword(String encryptPassword) {
-        this.encryptPassword = encryptPassword;
-    }
-    
+        return encryptedPassword;
+    };
+    //business methods
     public boolean deposit(double amount) {
+        if(amount<=0)return false;
         balance+=amount;
         return true;
     };
 
     public boolean withdraw(double amount) {
+        if(amount<=0)return false;
+        if(balance-amount<1000)return false;
         balance-=amount;
         return true;
-    };
+    }
+
 }
